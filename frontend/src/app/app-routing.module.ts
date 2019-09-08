@@ -8,55 +8,59 @@ import { AdminLayoutSidebarLargeComponent } from './shared/components/layouts/ad
 
 const adminRoutes: Routes = [
     {
-      path: 'test',
+      path: 'home',
       loadChildren: () => import('./views/dashboard2/dashboard2.module').then(m => m.Dashboard2Module)
     },
     {
-      path: 'dashboard',
-      loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)
-    },
-    {
-      path: 'uikits',
-      loadChildren: () => import('./views/ui-kits/ui-kits.module').then(m => m.UiKitsModule)
-    },
-    {
-      path: 'forms',
-      loadChildren: () => import('./views/forms/forms.module').then(m => m.AppFormsModule)
-    },
-    {
-      path: 'invoice',
-      loadChildren: () => import('./views/invoice/invoice.module').then(m => m.InvoiceModule)
-    },
-    {
-      path: 'inbox',
-      loadChildren: () => import('./views/inbox/inbox.module').then(m => m.InboxModule)
-    },
-    {
-      path: 'calendar',
-      loadChildren: () => import('./views/calendar/calendar.module').then(m => m.CalendarAppModule)
-    },
-    {
-      path: 'chat',
-      loadChildren: () => import('./views/chat/chat.module').then(m => m.ChatModule)
-    },
-    {
-      path: 'tables',
-      loadChildren: () => import('./views/data-tables/data-tables.module').then(m => m.DataTablesModule)
-    },
-    {
-      path: 'pages',
-      loadChildren: () => import('./views/pages/pages.module').then(m => m.PagesModule)
-    },
-    {
-        path: 'icons',
-        loadChildren: () => import('./views/icons/icons.module').then(m => m.IconsModule)
+      path: 'hours',
+      loadChildren: () => import('./views/hours/hours.module').then(m => m.HoursModule)
     }
+    // {
+    //   path: 'dashboard',
+    //   loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)
+    // },
+    // {
+    //   path: 'uikits',
+    //   loadChildren: () => import('./views/ui-kits/ui-kits.module').then(m => m.UiKitsModule)
+    // },
+    // {
+    //   path: 'forms',
+    //   loadChildren: () => import('./views/forms/forms.module').then(m => m.AppFormsModule)
+    // },
+    // {
+    //   path: 'invoice',
+    //   loadChildren: () => import('./views/invoice/invoice.module').then(m => m.InvoiceModule)
+    // },
+    // {
+    //   path: 'inbox',
+    //   loadChildren: () => import('./views/inbox/inbox.module').then(m => m.InboxModule)
+    // },
+    // {
+    //   path: 'calendar',
+    //   loadChildren: () => import('./views/calendar/calendar.module').then(m => m.CalendarAppModule)
+    // },
+    // {
+    //   path: 'chat',
+    //   loadChildren: () => import('./views/chat/chat.module').then(m => m.ChatModule)
+    // },
+    // {
+    //   path: 'tables',
+    //   loadChildren: () => import('./views/data-tables/data-tables.module').then(m => m.DataTablesModule)
+    // },
+    // {
+    //   path: 'pages',
+    //   loadChildren: () => import('./views/pages/pages.module').then(m => m.PagesModule)
+    // },
+    // {
+    //     path: 'icons',
+    //     loadChildren: () => import('./views/icons/icons.module').then(m => m.IconsModule)
+    // }
   ];
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard/v1',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {

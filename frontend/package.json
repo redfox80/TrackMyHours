@@ -38,6 +38,7 @@
     "ng2-validation": "4.2.0",
     "ngx-chips": "1.9.8",
     "ngx-color-picker": "7.0.1",
+    "ngx-cookie-service": "^2.2.0",
     "ngx-echarts": "4.0.0",
     "ngx-img-cropper": "0.10.4",
     "ngx-pagination": "3.2.1",
