@@ -1,6 +1,7 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import {Form, FormBuilder, Validators} from "@angular/forms";
 import { HoursService } from "../../../shared/services/hours.service";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-hours',
@@ -12,6 +13,7 @@ export class AddHoursComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private hs: HoursService,
+    private ts: ToastrService,
   ) { }
 
   hoursAddForm = this.fb.group({
@@ -40,7 +42,10 @@ export class AddHoursComponent implements OnInit {
 
     this.hs.addHours(input)
       .subscribe(
-        res => console.log(res),
+        res => {
+          this.ts.success('Hours registered');
+          console.log(res);
+        },
         err => console.log(err),
       );
   }

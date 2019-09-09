@@ -5,6 +5,8 @@ import { AddHoursComponent } from './add-hours/add-hours.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { ViewHoursComponent } from './view-hours/view-hours.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [AddHoursComponent, ViewHoursComponent],
@@ -12,7 +14,9 @@ import { ViewHoursComponent } from './view-hours/view-hours.component';
     CommonModule,
     HoursRoutingModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    NgxDatatableModule,
+    NgxPaginationModule,
   ]
 })
 export class HoursModule { }

@@ -6,6 +6,7 @@ import { delay } from "rxjs/operators";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from "../../../environments/environment";
 import { CookieService } from "ngx-cookie-service";
+import { ToastrService } from "ngx-toastr";
 
 @Injectable({
   providedIn: "root"
@@ -19,6 +20,7 @@ export class AuthService {
     private router: Router,
     private http: HttpClient,
     private cookie: CookieService,
+    private toast: ToastrService,
   ) {
     this.checkAuth();
   }
@@ -58,15 +60,20 @@ export class AuthService {
       }),
     };
 
-    this.authenticated = false;
-    this.cookie.delete('token');
-    this.store.setItem('token', null);
     this.http.get(environment.apiEndpoint + 'auth/logout', httpOptions)
       .subscribe(
-        res => console.log(res),
-        err => console.log(err),
+        res => {
+          this.authenticated = false;
+          this.cookie.delete('token');
+          this.store.clear();
+          console.log(res);
+          this.router.navigateByUrl("/sessions/signin");
+        },
+        err => {
+          console.log(err);
+          this.toast.error('An error occured while attempting to logout!', 'ERROR');
+        },
       );
-    this.router.navigateByUrl("/sessions/signin");
   }
 
   register(name, email, password, c_password) {

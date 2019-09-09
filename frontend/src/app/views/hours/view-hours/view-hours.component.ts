@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HoursService } from "../../../shared/services/hours.service";
 import {LocalStoreService} from "../../../shared/services/local-store.service";
-import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: 'app-view-hours',
@@ -14,7 +13,6 @@ export class ViewHoursComponent implements OnInit {
   constructor(
     private hs: HoursService,
     private ls: LocalStoreService,
-    private ts: ToastrService,
   ) { }
 
   ngOnInit() {
@@ -25,11 +23,14 @@ export class ViewHoursComponent implements OnInit {
     this.hs.getHours()
       .subscribe(
         res => {
-          this.ts.success('Hours registered');
           this.hours = res;
         },
         err => console.log(err)
       );
+  }
+
+  test(e) {
+    if(e['type'] == 'click') console.log('So you want to edit hour with id ' + e['row']['id'] + ' i see. too bad it don\'t work yet!');
   }
 
 }

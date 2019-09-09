@@ -65,7 +65,7 @@ export class NavigationService {
         { icon: 'i-File-Horizontal-Text', name: 'View hours', state: '/hours/view', type: 'link'},
         { icon: 'i-Clock-Forward', name: 'Add hours', state: '/hours/add', type: 'link'},
       ]
-    }
+    },
     // {
     //     name: 'Dashboard',
     //     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
@@ -181,13 +181,13 @@ export class NavigationService {
     //         { icon: 'i-Error-404-Window', name: 'Not found', state: '/others/404', type: 'link' }
     //     ]
     // },
-    // {
-    //     name: 'Doc',
-    //     type: 'extLink',
-    //     tooltip: 'Documentation',
-    //     icon: 'i-Safe-Box1',
-    //     state: 'http://demos.ui-lib.com/gull-doc'
-    // }
+    {
+        name: 'Demo',
+        type: 'extLink',
+        tooltip: 'Live demo',
+        icon: 'i-Safe-Box1',
+        state: 'http://gull.ui-lib.com/purple/#/applayout-sidebar-large/dashboard/v1'
+    },
   ];
 
 
