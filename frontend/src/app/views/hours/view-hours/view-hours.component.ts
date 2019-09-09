@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HoursService } from "../../../shared/services/hours.service";
-import {LocalStoreService} from "../../../shared/services/local-store.service";
+import { LocalStoreService } from "../../../shared/services/local-store.service";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-view-hours',
@@ -9,10 +10,12 @@ import {LocalStoreService} from "../../../shared/services/local-store.service";
 })
 export class ViewHoursComponent implements OnInit {
   hours;
+  selectedHour;
 
   constructor(
     private hs: HoursService,
     private ls: LocalStoreService,
+    private modalService: NgbModal,
   ) { }
 
   ngOnInit() {
