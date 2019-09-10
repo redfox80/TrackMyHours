@@ -37,29 +37,4 @@
 
 </div>
 
-<ng-template #editHourModal let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Modal Basic</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <form>
-      <div class="form-group">
-        <label for="picker1">Date picker</label>
-        <div class="input-group">
-          <input id="picker1" class="form-control" placeholder="yyyy-mm-dd" name="dp">
-          <div class="input-group-append">
-            <button class="btn btn-secondary" type="button">
-              <i class="icon-regular i-Calendar-4"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark btn-rounded" (click)="modal.close('Save click')">Save</button>
-  </div>
-</ng-template>
+

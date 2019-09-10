@@ -4,12 +4,16 @@ import {HoursRoutingModule} from "./houres-routing.module";
 import { AddHoursComponent } from './add-hours/add-hours.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { ViewHoursComponent } from './view-hours/view-hours.component';
+import { ViewHoursComponent, NgbdModalContent } from './view-hours/view-hours.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
-  declarations: [AddHoursComponent, ViewHoursComponent],
+  declarations: [
+    AddHoursComponent,
+    ViewHoursComponent,
+    NgbdModalContent,
+  ],
   imports: [
     CommonModule,
     HoursRoutingModule,
@@ -17,6 +21,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NgbModule,
     NgxDatatableModule,
     NgxPaginationModule,
+  ],
+  entryComponents: [
+    NgbdModalContent,
   ]
 })
 export class HoursModule { }
