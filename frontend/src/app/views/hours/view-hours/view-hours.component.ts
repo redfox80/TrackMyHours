@@ -2,26 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HoursService } from "../../../shared/services/hours.service";
 import { LocalStoreService } from "../../../shared/services/local-store.service";
 import { NgbModal, NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
+import { FormBuilder, Validators } from "@angular/forms";
 
 @Component({
   selector: 'ngbd-modal-content',
-  template: `
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Modal Basic</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <p>
-        {{ hour['date'] }}<br/>
-        {{ hour['hours'] }}
-      </p>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark btn-rounded" (click)="modal.close('Save click')">Save</button>
-    </div>
-  `
+  templateUrl: './edit-hours-modal.component.html',
 })
 
 export class NgbdModalContent {
@@ -30,7 +15,13 @@ export class NgbdModalContent {
 
   constructor(
     public activeModal: NgbActiveModal,
+    private fb: FormBuilder,
   ) {}
+
+  editForm = this.fb.group({
+    date: ['', Validators.required],
+    hours: ['', Validators.required],
+  });
 }
 
 @Component({
