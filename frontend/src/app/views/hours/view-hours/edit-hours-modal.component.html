@@ -10,10 +10,25 @@
     {{ hour['hours'] }}
   </p>
 
-  <form [formGroup]="editForm">
+  <form [formGroup]="editForm" (ngSubmit)="submit()">
+
+    <input type="hidden" formControlName="hourId"/>
+    
+    <div class="form-group">
+      <label for="date">Date to register hours for</label>
+      <div class="input-group">
+        <input formControlName="date" id="date" class="form-control" placeholder="dd-mm-yyyy" ngbDatepicker #dp="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-secondary" (click)="dp.toggle()" type="button">
+            <i class="icon-regular i-Calendar-4"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
     <div class="form-group">
       <label for="hours">Hours</label>
-      <input type="text" id="hours" formControlName="hours" class="form-control" placeholder="e.g. 4.5"/>
+      <input type="text" id="hours" formControlName="hours" class="form-control" placeholder="e.g. 4.5" autofocus/>
     </div>
 
     <button type="submit" class="btn btn-success btn-block mt-3">Save changes</button>

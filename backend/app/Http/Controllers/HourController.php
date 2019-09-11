@@ -40,7 +40,10 @@ class HourController extends Controller
         if(!$hours) return response('', 404);
         if($hours->user_id != \Auth::user()->id) return response('', 403);
 
-        $hours->date = $request->input('date');
+        $dt = $request->input('date');
+        $date = $dt['year'] . '/' . $dt['month'] . '/' . $dt['day'] . '00:00:01';
+
+        $hours->date = \Carbon\Carbon::parse($date)->format('Y-m-d H:i:s');
         $hours->hours = $request->input('hours');
         $hours->save();
 

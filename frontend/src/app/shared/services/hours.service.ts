@@ -40,4 +40,14 @@ export class HoursService {
 
     return this.http.post(environment.apiEndpoint + 'hours', input, httpOptions);
   }
+
+  updateHours(input) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'authorization': 'Bearer ' + this.ls.getItem('token'),
+      }),
+    };
+
+    return this.http.patch(environment.apiEndpoint + 'hours', input, httpOptions);
+  }
 }
