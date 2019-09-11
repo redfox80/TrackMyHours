@@ -3,6 +3,7 @@ import {SharedAnimations} from 'src/app/shared/animations/shared-animations';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {AuthService} from '../../../shared/services/auth.service';
 import {Router, RouteConfigLoadStart, ResolveStart, RouteConfigLoadEnd, ResolveEnd} from '@angular/router';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-signin',
@@ -36,9 +37,14 @@ export class SigninComponent implements OnInit {
       }
     });
 
+    let creds = {
+      email: (environment.production) ? '':'joakim@forde.it',
+      password: (environment.production) ? '':'123456',
+    };
+
     this.signinForm = this.fb.group({
-      email: ['joakim@forde.it', Validators.required],
-      password: ['123456', Validators.required]
+      email: [creds.email, Validators.required],
+      password: [creds.password, Validators.required]
     });
   }
 
