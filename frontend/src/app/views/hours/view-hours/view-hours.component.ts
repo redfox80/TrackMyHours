@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, ApplicationRef } from '@angular/core';
 import { HoursService } from "../../../shared/services/hours.service";
 import { LocalStoreService } from "../../../shared/services/local-store.service";
 import { NgbModal, NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
@@ -43,6 +43,7 @@ export class NgbdModalContent implements OnInit {
     private fb: FormBuilder,
     private hs: HoursService,
     private toast: ToastrService,
+    private vhc: ViewHoursComponent,
   ) {}
 
   ngOnInit() {
@@ -67,6 +68,7 @@ export class NgbdModalContent implements OnInit {
     this.hs.updateHours(input)
       .subscribe(
         res => {
+          this.vhc.updateHoursList();
           console.log(res)
           this.toast.success('Hours updated');
           this.activeModal.close();
@@ -79,7 +81,7 @@ export class NgbdModalContent implements OnInit {
 @Component({
   selector: 'app-view-hours',
   templateUrl: './view-hours.component.html',
-  styleUrls: ['./view-hours.component.scss']
+  styleUrls: ['./view-hours.component.scss'],
 })
 export class ViewHoursComponent implements OnInit, AfterViewInit {
   hours;
@@ -95,6 +97,13 @@ export class ViewHoursComponent implements OnInit, AfterViewInit {
       this.hours = this.ls.getItem('hours');
     }
 
+    this.updateHoursList();
+  }
+
+  ngAfterViewInit() {
+  }
+
+  updateHoursList() {
     this.hs.getHours()
       .subscribe(
         res => {
@@ -102,9 +111,6 @@ export class ViewHoursComponent implements OnInit, AfterViewInit {
         },
         err => console.log(err)
       );
-    }
-
-  ngAfterViewInit() {
   }
 
   test(e) {
@@ -112,6 +118,7 @@ export class ViewHoursComponent implements OnInit, AfterViewInit {
       const modalRef = this.modalService.open( NgbdModalContent );
       modalRef.componentInstance.hour = e['row'];
       modalRef.componentInstance.modal = modalRef;
+      
     }
   }
 

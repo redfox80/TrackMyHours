@@ -19,7 +19,7 @@ class HourController extends Controller
     public function postHours(Request $request) {
 
         $dt = $request->input('date');
-        $date = $dt['year'] . '/' . $dt['month'] . '/' . $dt['day'] . '00:00:01';
+        $date = $dt['year'] . '-' . $dt['month'] . '-' . $dt['day'] . ' 00:00:01';
 
         $hours = new Hour;
 
@@ -41,7 +41,7 @@ class HourController extends Controller
         if($hours->user_id != \Auth::user()->id) return response('', 403);
 
         $dt = $request->input('date');
-        $date = $dt['year'] . '/' . $dt['month'] . '/' . $dt['day'] . '00:00:01';
+        $date = $dt['year'] . '-' . $dt['month'] . '-' . $dt['day'] . ' 00:00:01';
 
         $hours->date = \Carbon\Carbon::parse($date)->format('Y-m-d H:i:s');
         $hours->hours = $request->input('hours');

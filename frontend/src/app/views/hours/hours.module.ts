@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {HoursRoutingModule} from "./houres-routing.module";
 import { AddHoursComponent } from './add-hours/add-hours.component';
@@ -24,6 +24,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
   ],
   entryComponents: [
     NgbdModalContent,
+  ],
+  providers: [
+    ViewHoursComponent,
   ]
 })
 export class HoursModule { }
