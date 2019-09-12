@@ -1,0 +1,83 @@
+<div class="row">
+
+  <div class="col-lg-3">
+
+    <form [formGroup]="searchForm">
+
+      <div class="form-group">
+        <label for="date">Period start</label>
+        <div class="input-group">
+          <input formControlName="from" id="date" class="form-control" placeholder="yyyy-mm-dd" ngbDatepicker #dp="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-secondary" (click)="dp.toggle()" type="button">
+              <i class="icon-regular i-Calendar-4"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="date2">Period start</label>
+        <div class="input-group">
+          <input formControlName="to" id="date2" class="form-control" placeholder="yyyy-mm-dd" ngbDatepicker #dp2="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-secondary" (click)="dp2.toggle()" type="button">
+              <i class="icon-regular i-Calendar-4"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" (click)="searchPeriod()" class="btn btn-primary btn-block mt-3">Get defined period</button>
+
+    </form>
+    
+  </div>
+
+  <div class="col-lg-3">
+
+    <div class="card card-ecommerce-1 mb-4">
+      <div class="card-body text-center">
+        <h5 class="text-primary"><i class="i-Clock-Forward"></i></h5>
+        <h5>Total hours in period</h5>
+        <h3>{{ total || 'na'}}</h3>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="row mt-3">
+
+  <div class="col-lg-6">
+
+    <ngx-datatable
+    style="height: calc(100vh - 270px); box-shadow: none;"
+    class="material fullscreen"
+    [columnMode]="'force'"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    [rowHeight]="60"
+    [scrollbarV]="true"
+    [scrollbarH]="false"
+    [limit]="10"
+    [rows]="hours">
+      <ngx-datatable-column name="date" [width]="120" [maxWidth]="350">
+        <ng-template ngx-datatable-header-template>
+          Date
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Hours" [width]="120">
+        <ng-template ngx-datatable-header-template>
+          Hours
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column>
+        <button type="button" class="btn btn-primary-o">Test</button>
+      </ngx-datatable-column>
+    </ngx-datatable>
+
+  </div>
+
+</div>

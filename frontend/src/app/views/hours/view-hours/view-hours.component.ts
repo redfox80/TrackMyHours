@@ -76,6 +76,25 @@ export class NgbdModalContent implements OnInit {
         err => console.log(err),
       );
   }
+
+  delete() {
+    let input = {
+      id: this.hour['id'],
+    };
+
+    if(!confirm('Are you sure you want to delete this?')) return;
+
+    this.hs.deleteHours(input)
+      .subscribe(
+        res => {
+          this.vhc.updateHoursList();
+          console.log(res)
+          this.toast.warning('Deleted hour');
+          this.activeModal.close();
+        },
+        err => console.log(err),
+      );
+  }
 }
 
 @Component({

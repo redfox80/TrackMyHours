@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddHoursComponent } from "./add-hours/add-hours.component";
-import {ViewHoursComponent} from "./view-hours/view-hours.component";
+import { ViewHoursComponent } from "./view-hours/view-hours.component";
+import { PeriodHoursComponent } from './period-hours/period-hours.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'add',
     component: AddHoursComponent,
+  },
+  {
+    path: 'period',
+    component: PeriodHoursComponent,
   },
 ];
 

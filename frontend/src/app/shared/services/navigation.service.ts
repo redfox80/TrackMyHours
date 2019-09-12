@@ -64,6 +64,7 @@ export class NavigationService {
       sub: [
         { icon: 'i-File-Horizontal-Text', name: 'View hours', state: '/hours/view', type: 'link'},
         { icon: 'i-Clock-Forward', name: 'Add hours', state: '/hours/add', type: 'link'},
+        { icon: 'i-Clock-Forward', name: 'View a period', state: '/hours/period', type: 'link'},
       ]
     },
     // {

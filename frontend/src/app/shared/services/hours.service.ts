@@ -50,4 +50,14 @@ export class HoursService {
 
     return this.http.patch(environment.apiEndpoint + 'hours', input, httpOptions);
   }
+
+  deleteHours(input) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'authorization': 'Bearer ' + this.ls.getItem('token'),
+      }),
+    };
+
+    return this.http.delete(environment.apiEndpoint + 'hours/' + input['id'], httpOptions);
+  }
 }

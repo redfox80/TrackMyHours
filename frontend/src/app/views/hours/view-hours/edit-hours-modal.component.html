@@ -33,8 +33,9 @@
 
     <button type="submit" class="btn btn-success btn-block mt-3">Save changes</button>
 
-    <button type="button" class="btn btn-danger btn-block mt-4">Delete hours</button>
   </form>
+
+  <button type="button" (click)="delete()" class="btn btn-danger btn-block mt-4">Delete hours</button>
 </div>
 <div class="modal-footer">
   Hour id: {{ hour['id'] }}

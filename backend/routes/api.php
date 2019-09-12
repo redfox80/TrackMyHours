@@ -23,7 +23,7 @@ Route::group([
 ], function () {
     Route::post('login', 'AuthController@login');
     Route::post('register', 'AuthController@signup');
-    
+
     Route::group([
         'middleware' => 'auth:api'
     ], function() {
@@ -38,5 +38,17 @@ Route::group([
     Route::get('hours', 'HourController@getHours');
     Route::post('hours', 'HourController@postHours');
     Route::patch('hours', 'HourController@updateHours');
-    Route::delete('hours', 'HourController@deleteHours');
+    Route::delete('hours/{id}', 'HourController@deleteHours');
+
+    Route::group([
+        'prefix' => 'statistics',
+        'namespace' => 'Statistics',
+    ], function() {
+        Route::group([
+            'prefix' => 'hours',
+        ], function() {
+            Route::get('total', 'HourStatisticsController@getTotal');
+            Route::post('period', 'HourStatisticsController@postPeriod');
+        });
+    });
 });

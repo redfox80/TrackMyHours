@@ -53,8 +53,8 @@ class HourController extends Controller
         ]);
     }
 
-    public function deleteHours(Request $request) {
-        $hours = Hour::find($request->input('id'));
+    public function deleteHours($id) {
+        $hours = Hour::find($id);
         if(!$hours) return response('', 404);
         if($hours->user_id != \Auth::user()->id) return response('', 403);
 
